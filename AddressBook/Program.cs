@@ -8,6 +8,7 @@
             Console.WriteLine("Welcome to Address Book Program ");
             Console.WriteLine("New Contact");
             AddressBook.person.CreateContacts();
+            AddressBook.person.EditContact();
 
         }
     }
