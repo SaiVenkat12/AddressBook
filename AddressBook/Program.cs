@@ -9,6 +9,7 @@
             Console.WriteLine("New Contact");
             AddressBook.person.CreateContacts();
             AddressBook.person.EditContact();
+            AddressBook.person.DeleteContact();
 
         }
     }

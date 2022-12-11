@@ -89,7 +89,7 @@ namespace AddressBook
                                 break;
 
                             case 8:
-                                string  EMail= Console.ReadLine();
+                                string EMail = Console.ReadLine();
                                 data.Email = EMail;
                                 break;
 
@@ -104,7 +104,31 @@ namespace AddressBook
                     }
                     else
                     {
-                        Console.WriteLine("Name doesnot match or exists in Address Book");
+                        Console.WriteLine("Name doesn't match or exists in Address Book");
+                    }
+                }
+            }
+        }
+        public static void DeleteContact()
+        {
+            Contacts contact = new Contacts();
+
+            Console.WriteLine("Enter the First Name of the person to be delete the Contact: ");
+            string dname = Console.ReadLine();
+            foreach (var data in Person)
+            {
+                if (Person.Contains(data))
+                {
+                    if (data.fname == dname)
+                    {
+                        Console.WriteLine();
+                        Person.Remove(contact);
+                        Console.WriteLine("Contact is deleted");
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Name doesn't match or exists in Address Book");
                     }
                 }
             }
