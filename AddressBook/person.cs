@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    internal class AddContact
+    public class person
     {
         public static void CreateContacts()
         {
@@ -43,4 +43,3 @@ namespace AddressBook
         }
     }
 }
-
