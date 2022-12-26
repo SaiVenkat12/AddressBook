@@ -7,9 +7,10 @@
         {
             Console.WriteLine("Welcome to Address Book Program ");
             Console.WriteLine("New Contact");
-            AddressBook.person.CreateContacts();
-            AddressBook.person.EditContact();
-            AddressBook.person.DeleteContact();
+            //AddressBook.person.CreateContacts();
+            //AddressBook.person.EditContact();
+            //AddressBook.person.DeleteContact();
+            AddressBook.person.AddContact();
 
         }
     }
