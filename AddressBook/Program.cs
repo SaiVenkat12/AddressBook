@@ -10,6 +10,7 @@
             //AddressBook.person.CreateContacts();
             //AddressBook.person.EditContact();
             //AddressBook.person.DeleteContact();
+            AddressBook.person.Display();
             AddressBook.person.AddContact();
 
         }

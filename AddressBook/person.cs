@@ -170,6 +170,15 @@ namespace AddressBook
 
                 Person.Add(contacts);
                 Console.WriteLine("Contact" + i + " added ");
+
+            }
+        }
+        public static void Display()
+        {
+            foreach (var data in Person)
+            {
+                Console.WriteLine("Contact Details");
+                Console.WriteLine("1.Name: " + data.fname + " " + data.lname + "2.Address: " + data.address + "3.City: " + data.city + "4.State: " + data.state + "5.Zipcode: " + data.zipcode + "6.EMAIL:  " + data.Email + "7.PhoneNumber: " + data.phonenumber);
             }
         }
     }
