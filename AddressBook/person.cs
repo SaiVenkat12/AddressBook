@@ -10,6 +10,7 @@ namespace AddressBook
     public class person
     {
         public static List<Contacts> Person = new List<Contacts>();
+        Dictionary<string, List<Contacts>> addressbook = new Dictionary<string, List<Contacts>>();
         public static void CreateContacts()
         {
             Contacts contacts = new Contacts();
@@ -134,51 +135,53 @@ namespace AddressBook
                 }
             }
         }
-        public static void AddContact()
-        {
-            Contacts contacts = new Contacts();
-            Console.WriteLine("Number of contacts to create:");
-            int Count = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = 1; i <= Count; i++)
-            {
-                Console.WriteLine("Enter details for Contact " + i);
-
-                Console.WriteLine("Enter First Name: ");
-                contacts.fname = Console.ReadLine();
-
-                Console.WriteLine("Enter Last Name: ");
-                contacts.lname = Console.ReadLine();
-
-                Console.WriteLine("Enter address: ");
-                contacts.address = Console.ReadLine();
-
-                Console.WriteLine("Enter city: ");
-                contacts.city = Console.ReadLine();
-
-                Console.WriteLine("Enter State: ");
-                contacts.state = Console.ReadLine();
-
-                Console.WriteLine("Enter Zipcode: ");
-                contacts.zipcode = Convert.ToInt32(Console.ReadLine());
-
-                Console.WriteLine("Enter Phone Number: ");
-                contacts.phonenumber = Convert.ToInt32(Console.ReadLine());
-
-                Console.WriteLine("Enter E-mail: ");
-                contacts.Email = Console.ReadLine();
-
-                Person.Add(contacts);
-                Console.WriteLine("Contact" + i + " added ");
-
-            }
-        }
         public static void Display()
         {
             foreach (var data in Person)
             {
                 Console.WriteLine("Contact Details");
-                Console.WriteLine("1.Name: " + data.fname + " " + data.lname + "2.Address: " + data.address + "3.City: " + data.city + "4.State: " + data.state + "5.Zipcode: " + data.zipcode + "6.EMAIL:  " + data.Email + "7.PhoneNumber: " + data.phonenumber);
+                Console.WriteLine("1.Name: " + data.fname + " " + data.lname + "\n 2.Address: " + data.address + "\n 3.City: " + data.city + "\n 4.State: " + data.state + "\n 5.Zipcode: " + data.zipcode + " 6.EMAIL:  " + data.Email + "\n 7.PhoneNumber: " + data.phonenumber);
+            }
+        }
+        public static void AddMultipleContacts()
+        {
+            Contacts contacts = new Contacts();
+            Console.WriteLine("Number of contacts to create:");
+            int Count = Convert.ToInt32(Console.ReadLine());
+            while (Count > 0)
+            {
+                CreateContacts();
+                Console.WriteLine("Contact Created");
+                Count--;
+            }
+        }
+        public void AddressBookContacts()
+        {
+            Console.WriteLine("Enter the Address Book Name: ");
+            string AddressBookName = Console.ReadLine();
+            Console.WriteLine("Enter The Number of Contacts To Add");
+            int A = int.Parse(Console.ReadLine());
+            while (A > 0)
+            {
+                A--;
+                CreateContacts();
+            }
+            addressbook.Add(AddressBookName, Person.ToList());
+        }
+        public void DisplayAddressBook()
+        {
+            foreach (var pair in addressbook.Keys)
+            {
+                Console.WriteLine("Address Book Name " + pair);
+                foreach (Contacts AdBook in addressbook[pair])
+                {
+                    Console.WriteLine("First Name: " + AdBook.fname);
+                    Console.WriteLine("Last Name: " + AdBook.lname);
+                    Console.WriteLine("Phone Number: " + AdBook.phonenumber);
+                    Console.WriteLine("City : " + AdBook.city);
+                    Console.WriteLine("Zip Code : " + AdBook.zipcode);
+                    Console.WriteLine("Email: " + AdBook.Email);
+                }
             }
         }
     }
