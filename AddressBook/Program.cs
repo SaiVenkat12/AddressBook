@@ -10,7 +10,7 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Enter number: \n 1. Create new Contact \n 2. Edit Contact \n 3. Delete Contact \n 4.Add Multiple Contact \n 5.Add AddressBookNames \n 6.Display \n 7.DisplayAddressBook \n 8.Check DuplicateContact \n 9.SearchPersonByCityorState \n 10.ViewPersonByCityorState ");
+                Console.WriteLine("Enter number: \n 1. Create new Contact \n 2. Edit Contact \n 3. Delete Contact \n 4.Add Multiple Contact \n 5.Add AddressBookNames \n 6.Display \n 7.DisplayAddressBook \n 8.Check DuplicateContact \n 9.Search Person by City or State \n 10.View Person byCity or State \n11.Number of Contacts per City or State ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -44,6 +44,9 @@
                         break;
                     case 10:
                         obj.ViewPersonByCityorState();
+                        break;
+                    case 11:
+                        obj.CountContactsperCityorState();
                         break;
                     default:
                         Console.WriteLine("Enter the Valid Number");

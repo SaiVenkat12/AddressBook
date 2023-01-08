@@ -232,5 +232,21 @@ namespace AddressBook
                 }
             }
         }
+        public void CountContactsperCityorState()
+        {
+            int count = 0;
+            Console.WriteLine("enter the city to search: ");
+            string City = Console.ReadLine();
+            Console.WriteLine("enter the State to search: ");
+            string State = Console.ReadLine();
+            foreach (var pair in addressbook.Keys)
+            {
+                foreach (var data in Person.FindAll(search => search.city == City || search.state == State))
+                {
+                    count++;
+                }
+                Console.WriteLine("No of contacts = {0} in city {1} or state {2}", count, City,State);
+            }
+        }
     }
 }
