@@ -189,9 +189,7 @@ namespace AddressBook
         {
             Console.WriteLine("enter the First Name to check for Duplicate Contact: ");
             string Name = Console.ReadLine();
-            Console.WriteLine("Enter the PhoneNumber: ");
-            long PhNo = long.Parse(Console.ReadLine());
-            bool check = Person.Any(check => check.fname == Name && check.phonenumber == PhNo);
+            bool check = Person.Any(check => check.fname == Name);
             if (check)
             {
                 Console.WriteLine("contact Exists");
