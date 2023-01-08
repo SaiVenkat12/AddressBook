@@ -34,7 +34,8 @@
                     person.Display();
                     break;
             }
-
+            obj.DisplayAddressBook();
+            obj.DuplicateContact();
 
         }
     }

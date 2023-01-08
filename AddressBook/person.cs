@@ -165,6 +165,7 @@ namespace AddressBook
             {
                 A--;
                 CreateContacts();
+                Console.WriteLine("New Contact Created");
             }
             addressbook.Add(AddressBookName, Person.ToList());
         }
@@ -182,6 +183,23 @@ namespace AddressBook
                     Console.WriteLine("Zip Code : " + AdBook.zipcode);
                     Console.WriteLine("Email: " + AdBook.Email);
                 }
+            }
+        }
+        public void DuplicateContact()
+        {
+            Console.WriteLine("enter the First Name to check for Duplicate Contact: ");
+            string Name = Console.ReadLine();
+            Console.WriteLine("Enter the PhoneNumber: ");
+            long PhNo = long.Parse(Console.ReadLine());
+            bool check = Person.Any(check => check.fname == Name && check.phonenumber == PhNo);
+            if (check)
+            {
+                Console.WriteLine("contact Exists");
+            }
+            else
+            {
+                Console.WriteLine("New Contact Created");
+                AddressBookContacts();
             }
         }
     }
