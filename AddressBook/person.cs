@@ -203,6 +203,22 @@ namespace AddressBook
         public void SearchPersonByCityorState()
         {
             Console.WriteLine("enter the city to search: ");
+            string Fname = Console.ReadLine();
+            Console.WriteLine("enter the State to search: ");
+            string City = Console.ReadLine();
+            Console.WriteLine("The Contacts in the State {0} or City {1} are ", Fname, City);
+            foreach (var pair in addressbook.Keys)
+            {
+                Console.WriteLine("Address Book Name: " + pair);
+                foreach (var data in Person.FindAll(search => search.city == City && search.fname == Fname))
+                {
+                    Console.WriteLine("Name " + data.fname + " " + data.lname + "  Phone Number" + data.phonenumber);
+                }
+            }
+        }
+        public void ViewPersonByCityorState()
+        {
+            Console.WriteLine("enter the city to search: ");
             string City = Console.ReadLine();
             Console.WriteLine("enter the State to search: ");
             string State = Console.ReadLine();
@@ -210,7 +226,7 @@ namespace AddressBook
             foreach (var pair in addressbook.Keys)
             {
                 Console.WriteLine("Address Book Name: " + pair);
-                foreach (var data in Person.FindAll(search => search.city == City | search.state == State))
+                foreach (var data in Person.FindAll(search => search.city == City || search.state == State))
                 {
                     Console.WriteLine("Name " + data.fname + " " + data.lname + "  Phone Number" + data.phonenumber);
                 }
