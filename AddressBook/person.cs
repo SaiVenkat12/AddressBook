@@ -248,5 +248,19 @@ namespace AddressBook
                 Console.WriteLine("No of contacts = {0} in city {1} or state {2}", count, City,State);
             }
         }
+        public void SortContactsByName()
+        {
+            if (addressbook.Count > 0)
+            {
+                foreach (var data in Person.OrderBy(sort => sort.fname))
+                {
+                    Console.WriteLine("Name " + data.fname + " " + data.lname + "  Phone Number" + data.phonenumber);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book doesn't Exists.");
+            }
+        }
     }
 }
