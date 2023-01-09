@@ -262,5 +262,50 @@ namespace AddressBook
                 Console.WriteLine("Address Book doesn't Exists.");
             }
         }
+        public void SortContactsByCityName()
+        {
+            if (addressbook.Count > 0)
+            {
+                Console.WriteLine("Sort Contacts by City Name");
+                foreach (var data in Person.OrderBy(sort => sort.city))
+                {
+                    Console.WriteLine("Name " + data.fname + " " + data.lname + "  Phone Number" + data.phonenumber + "City: " + data.city + "State: " + data.state);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book doesn't Exists.");
+            }
+        }
+        public void SortContactsByState()
+        {
+            if (addressbook.Count > 0)
+            {
+                Console.WriteLine("Sort Contacts by State Name");
+                foreach (var data in Person.OrderBy(sort => sort.state))
+                {
+                    Console.WriteLine("Name: " + data.fname + " " + data.lname + "  Phone Number: " + data.phonenumber + "City: " + data.city);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book doesn't Exists.");
+            }
+        }
+        public void SortContactsByZipCode()
+        {
+            if (addressbook.Count > 0)
+            {
+                Console.WriteLine("Sort Contacts by Zip Code");
+                foreach (var data in Person.OrderBy(sort => sort.zipcode))
+                {
+                    Console.WriteLine("Name: " + data.fname + " " + data.lname + "  Phone Number: " + data.phonenumber + "City: " + data.city + "Zipcode: " + data.zipcode);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book doesn't Exists.");
+            }
+        }
     }
 }
