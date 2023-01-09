@@ -245,7 +245,7 @@ namespace AddressBook
                 {
                     count++;
                 }
-                Console.WriteLine("No of contacts = {0} in city {1} or state {2}", count, City,State);
+                Console.WriteLine("No of contacts = {0} in city {1} or state {2}", count, City, State);
             }
         }
         public void SortContactsByName()
@@ -306,6 +306,26 @@ namespace AddressBook
             {
                 Console.WriteLine("Address Book doesn't Exists.");
             }
+        }
+        public void ReadAndWriteFile()
+        {
+            string filepath = @"C:\Users\venky\source\AddressBook\AddressBook\ContactFiles\ContactBook.txt";
+            foreach (var data in Person)
+            {
+                using (StreamWriter swrite = File.AppendText(filepath))
+                {
+                    swrite.WriteLine("Name:" + data.fname + " " + data.lname + "  Phone Number: " + data.phonenumber + "City: " + data.city + " Zipcode: " + data.zipcode);
+                    swrite.Close();
+                }
+                using (StreamReader sread = File.OpenText(filepath))
+                {
+                    string str = " ";
+                    while ((str = sread.ReadLine()) != null)
+                    {
+                        Console.WriteLine(str);
+                    }
+                }
+                }
         }
     }
 }
